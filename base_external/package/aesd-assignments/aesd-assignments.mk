@@ -4,10 +4,10 @@
 # AESD-ASSIGNMENTS
 #
 ##############################################################
-AESD_ASSIGNMENTS_VERSION = master
+AESD_ASSIGNMENTS_VERSION = 0be923d7623e2b31d17140c1020d4b227865f460
 
 AESD_ASSIGNMENTS_SITE = \
-git@github.com:pkini2002/aeld-assignment-3-and-later.git
+https://github.com/pkini2002/aeld-assignment-3-and-later.git
 
 AESD_ASSIGNMENTS_SITE_METHOD = git
 
@@ -30,13 +30,9 @@ define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
     $(@D)/finder-app/finder-test.sh \
     $(TARGET_DIR)/usr/bin/finder-test.sh
 
-    $(INSTALL) -D -m 0755 \
-    $(@D)/finder-app/tester.sh \
-    $(TARGET_DIR)/usr/bin/tester.sh
+    mkdir -p $(TARGET_DIR)/etc/finder-app/conf
 
-   mkdir -p $(TARGET_DIR)/etc/finder-app/conf
-
-    cp -r $(@D)/conf/* \
+    cp -r $(@D)/finder-app/conf/* \
         $(TARGET_DIR)/etc/finder-app/conf/
 endef
 
